@@ -1,0 +1,121 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style> 
+        #flip,#showflip{
+          padding: 5px;
+          text-align: center;
+          background-color: #e5eecc;
+          border: solid 1px #c3c3c3;
+
+        }
+
+        #panel {
+          padding: 5px;
+          text-align: center;
+          background-color: #e5eecc;
+          border: solid 1px #c3c3c3;
+        }
+        
+        #panel {
+          padding: 50px;
+          display: none;
+        }
+        </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#togbtn").click(function(){
+    $("#hidepara,#showpara").toggle();
+  });
+});
+</script>
+
+<script>
+    $(document).ready(function(){
+  $("#hide").click(function(){
+    $("#hidepara,#showpara").hide();
+  });
+  $("#show").click(function(){
+    $("#hidepara,#showpara").show();
+  });
+ 
+      $("#flip").click(function(){
+        $("#panel").slideDown("slow");
+      });
+    
+
+     $("#showflip").click(function(){
+        $("#panel").slideUp("slow");
+      });
+    
+
+    
+     $("#hiding").click(function(){
+        $("#hidingpara").hide("slow", function(){
+            alert("The paragraph is now hidden");
+            });
+          });
+
+    $("#hh").click(function(){
+    $("#anipara").css("color", "red")
+      .slideUp(2000)
+      .slideDown(2000);
+  });
+
+ 
+});  
+</script>
+    
+</head>
+<body>
+
+<button id="togbtn">Toggle between hiding and showing the paragraphs</button> <br><br>
+<button id="hide" >hide button</button>
+<button id="show"  >show button</button>
+
+<div id="background" style="background-color: aquamarine;">
+ <p id="hidepara">This is a paragraph with little content.</p>
+ <p id="showpara">This is another small paragraph.</p>
+</div> 
+    <div id="flip">Click to slide down panel</div>
+    <div id="showflip">Click to slide up panel</div>
+    <div id="panel">Hello world!</div>
+
+    <br><br>
+     
+    <script>
+        
+        </script>
+
+        <button id="hiding">hiding</button>
+        <p id="hidingpara">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga, provident?</p>
+
+        <br><br>
+        <button id="hh">animation</button>
+        
+        <p id="anipara">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga, provident?</p>
+       
+        <br><br>
+         <button id="text">text</button>
+        <p id="textpara"></p>
+        <script>
+         
+         $("#text").click(function(){
+            $("#textpara").text("hi");
+          });
+          
+        </script>
+        <br><br>
+
+        <button id="dbl">double click</button>
+        <script>
+          $("#dbl").dblclick(function(){
+            alert("you are clicking double times");
+          });
+        </script>
+</body>
+</html>
+
