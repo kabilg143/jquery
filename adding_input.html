@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>adding input</title>
+
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  </head>
+  <body>
+   
+      <p>enter the number:<input type="text" name="input" id="input" ></p>
+           
+      <p>alter number &nbsp;&nbsp; &nbsp; :<input type="text" name="alter" id="alter"></p>
+        
+      <button id="increment">increment</button>
+      <button id="decrement">decrement</button> <br><br>
+
+      <p> sum :<input type="text" name="sum" id="sum"> </p>
+      <button id="sumbtn">sum</button>
+
+         <br>
+       
+        <script>
+             $("document").ready(function(){
+               var sum=0;
+               var val;
+                $("#increment").click(function(){
+                 
+                   val = $("#input").val();
+                   if(!val){
+                      alert("value should not be empty")
+                    }
+                   else if(val){
+                        if(val==0)
+                         {
+                        alert("value should not be 0");
+                         }
+                        var x;
+                        x=Number(val);
+                        sum+=x;
+                        if(sum<0)
+                        {
+                          sum=0;
+                        }
+                        $("#alter").val(sum);
+                        
+                    }
+                    
+                    
+                    var x=$("#alter").val();
+                     
+                    if(x>0){
+                    document.getElementById("alter").disabled=false;
+                    }   
+                });
+
+                 $("#decrement").click(function(){
+                  var x=$("#alter").val();
+                  var val = $("#input").val();
+                  
+                     if(!val)
+                      {
+                        alert("value should not be empty");
+                      }
+                     else if(x==0){
+                     alert("increment the alter value")
+                    }   
+                    else if(val){
+                       
+                        var x;
+                        x=Number(val);
+                        sum-=x;
+                        if(sum<0)
+                        {
+                          sum=0;
+                        }
+                        $("#alter").val(sum);
+                    }
+                });
+
+                $("#sumbtn").click(function(){
+
+                  val = $("#input").val();
+                  var t,z,x,y;
+                  t=Number(val);
+                  if(t==0)
+                  {
+                    alert("enter valid inputs")
+                  }
+                  x=$("#alter").val();
+                  y=Number(x);
+                  if(y==0)
+                  {
+                    document.getElementById("alter").disabled=true;
+                    alert("enter valid inputs")
+                  }
+                  z=t+y;
+                  $("#sum").val(z);
+                    
+                });
+
+               
+                   
+         });
+                
+
+               
+
+            
+
+        </script>
+  </body>
+</html>
