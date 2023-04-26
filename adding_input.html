@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>adding input</title>
+
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+  <style>
+    input {
+      background-color: beige;
+    }
+
+    #input {
+      width: 170px;
+
+    }
+
+    p {
+      font-weight: bolder;
+    }
+
+    body {
+      background-color: antiquewhite;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    button {
+      cursor: pointer;
+      color: whitesmoke;
+      background-color: blueviolet;
+      border-radius:5px;
+
+    }
+    #clear{
+      background-color: rgba(243, 8, 8, 0.89);
+    }
+  </style>
+</head>
+
+<body>
+
+  <p>Enter the number:<input type="number" name="input" id="input" min="1" max="9"
+     onkeypress="return myfunction(event)" ></p>
+
+  <p>Alter number &nbsp;&nbsp; &nbsp; :<input type="number" name="alter" id="alter"></p>
+
+  <button id="increment">increment</button>
+  <button id="decrement">decrement</button> <br><br>
+
+  <p> Sum :<input type="number" name="sum" id="sum"> </p>
+  <button id="sumbtn">sum</button> <br><br>
+  <button id="clear">clear</button>
+
+  <br>
+
+  <script>
+     function myfunction(event){
+           return (event.charCode>=48 && event.charCode<= 57);  
+         }
+          
+        
+
+  </script>
+  <script>
+  // // Get the input field element
+  // const input = document.getElementById("input");
+
+  // // Attach the onkeypress event listener
+  // input.addEventListener("keypress", function(event) {
+  //   // Get the key code of the pressed key
+  //   const keyCode = event.which || event.keyCode;
+
+  //   // Check if the key pressed is a whole number
+  //   if (keyCode < 48 || keyCode > 57) {
+  //     event.preventDefault();
+  //   }
+  // });
+</script>
+  <script>
+        
+    $("document").ready(function () {
+        
+     
+
+
+      var sum = 0, count = 0;
+
+      $("#increment").click(function () {
+        var val = $("#input").val();
+        if (val < 0) {
+          alert("input value greater than 0");
+        }
+        var element = document.getElementById("input");
+        element.classList.add("myclass");
+
+        var val = $("#input").val();
+        if (!val) {
+          alert("value should not be empty")
+        }
+        else if (val) {
+          if (val == 0) {
+            alert("value should not be 0");
+          }
+          var val1;
+          val1 = Number(val);
+          sum += val1;
+          if (sum < 0) {
+            sum = 0;
+          }
+          $("#alter").val(sum);
+
+        }
+
+
+        var x = $("#alter").val();
+
+        if (x > 0) {
+          document.getElementById("alter").disabled = false;
+        }
+      });
+
+      $("#decrement").click(function () {
+        var val1 = $("#alter").val();
+        var val = $("#input").val();
+
+        if (!val) {
+          alert("value should not be empty");
+        }
+        else if (val1 == 0) {
+          alert("increment the alter value")
+        }
+        else if (val) {
+
+          var val1;
+          val1 = val;
+          sum -= val1;
+          if (sum < 0) {
+            sum = 0;
+          }
+          $("#alter").val(sum);
+        }
+      });
+
+      $("#sumbtn").click(function () {
+
+        var val1 = $("#input").val();
+        var input1, total, input2;
+        input1 = Number(val1);
+        if (input1 == 0) {
+          alert("enter valid inputs")
+        }
+        var val2 = $("#alter").val();
+        input2 = Number(val2);
+        if (input2 == 0) {
+          document.getElementById("alter").disabled = true;
+          alert("enter valid inputs")
+        }
+        total = input1 + input2;
+        $("#sum").val(total);
+
+      });
+
+      $("#clear").click(function () {
+        document.getElementById('input').value = '';
+        document.getElementById('alter').value = '';
+        document.getElementById('sum').value = '';
+        sum=0;
+
+      });
+
+
+    });
+  </script>
+
+
+</body>
+
+</html>
